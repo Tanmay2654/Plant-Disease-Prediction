@@ -18,9 +18,11 @@ A **web-based application** that uses deep learning to detect and classify plant
 
 ## Demo Screenshots
 
-| Home Page                          | Prediction Result                              | Probability Chart & Disease Info              |
-|------------------------------------|------------------------------------------------|-----------------------------------------------|
-| ![Home Page](screenshots/home-page.png) | ![Prediction Result](screenshots/prediction-result.png) | ![Chart & Info](screenshots/chart-and-info.png) |
+Here are some examples of how the application looks and works:
+
+| Home Page                                      | Prediction Result                                      | Probability Chart & Disease Info                       |
+|------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|
+| ![Home Page](screenshots/home-page.png)        | ![Prediction Result](screenshots/prediction-result.png) | ![Chart & Info](screenshots/chart-and-info.png)        |
 
 ## 🛠️ Tech Stack
 
