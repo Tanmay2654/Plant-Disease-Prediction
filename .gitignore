@@ -1,0 +1,27 @@
+# Virtual environments
+env/
+myenv/
+tf-env/
+
+# Data folders (large datasets)
+test/
+train/
+valid/
+archive.zip
+
+# VS Code settings
+.vscode/
+
+# Python caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Large files (uncomment if your model is >100MB)
+# trained_plant_disease_model.keras
+
+# Other common ignores
+*.zip
+*.rar
+*.tmp
