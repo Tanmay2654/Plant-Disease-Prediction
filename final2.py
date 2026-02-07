@@ -30,29 +30,213 @@ def plot_predictions(predictions, class_names):
 # Full Disease Information Dictionary (simplified here; replace with full 38-class dictionary)
 disease_info_full = {
     "Apple___Apple_scab": {
-        "description": "Apple scab is a fungal disease causing dark, scabby lesions on leaves and fruit, which can lead to fruit deformities and premature leaf drop.",
-        "prevention": "Plant resistant varieties and ensure proper air circulation by pruning and spacing trees appropriately.",
-        "cure": "Apply fungicides early in the season and remove fallen leaves and infected fruit."
+        "description": "Fungal disease causing olive-green or black scabs on leaves and fruit.",
+        "prevention": "Plant resistant varieties, prune for air circulation, remove fallen leaves.",
+        "cure": "Apply fungicides like captan or sulfur in early spring."
+    },
+    "Apple___Black_rot": {
+        "description": "Fungal infection leading to black rot on fruit and leaf spots.",
+        "prevention": "Remove mummified fruit, prune infected branches.",
+        "cure": "Use copper-based fungicides and improve sanitation."
+    },
+    "Apple___Cedar_apple_rust": {
+        "description": "Rust fungus causing orange spots on leaves and fruit deformities.",
+        "prevention": "Remove nearby cedar/juniper trees, plant resistant apple varieties.",
+        "cure": "Apply fungicides like myclobutanil during wet weather."
+    },
+    "Apple___healthy": {
+        "description": "No disease detected; the apple plant is healthy.",
+        "prevention": "Maintain proper watering, fertilization, and pest monitoring.",
+        "cure": "No treatment needed."
+    },
+    "Blueberry___healthy": {
+        "description": "No disease detected; the blueberry plant is healthy.",
+        "prevention": "Ensure acidic soil, good drainage, and mulch.",
+        "cure": "No treatment needed."
+    },
+    "Cherry_(including_sour)___Powdery_mildew": {
+        "description": "White powdery fungus on leaves and fruit, causing distortion.",
+        "prevention": "Improve air circulation, avoid overhead watering.",
+        "cure": "Apply sulfur or potassium bicarbonate sprays."
+    },
+    "Cherry_(including_sour)___healthy": {
+        "description": "No disease detected; the cherry plant is healthy.",
+        "prevention": "Prune regularly, ensure good sunlight.",
+        "cure": "No treatment needed."
+    },
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot": {
+        "description": "Gray or tan rectangular spots on leaves, leading to reduced yield.",
+        "prevention": "Crop rotation, plant resistant hybrids.",
+        "cure": "Apply fungicides like azoxystrobin."
+    },
+    "Corn_(maize)___Common_rust_": {
+        "description": "Reddish-brown pustules on leaves, common in cool, humid weather.",
+        "prevention": "Plant resistant varieties, avoid dense planting.",
+        "cure": "Fungicides like mancozeb if severe."
+    },
+    "Corn_(maize)___Northern_Leaf_Blight": {
+        "description": "Long, elliptical gray-green lesions on leaves.",
+        "prevention": "Crop rotation, remove crop residue.",
+        "cure": "Apply fungicides like propiconazole."
+    },
+    "Corn_(maize)___healthy": {
+        "description": "No disease detected; the corn plant is healthy.",
+        "prevention": "Balanced fertilization, weed control.",
+        "cure": "No treatment needed."
+    },
+    "Grape___Black_rot": {
+        "description": "Black spots on leaves and fruit, leading to shriveling.",
+        "prevention": "Prune for air flow, remove mummies.",
+        "cure": "Fungicides like captan."
+    },
+    "Grape___Esca_(Black_Measles)": {
+        "description": "Internal wood decay with black streaks on leaves.",
+        "prevention": "Avoid wounding vines, use healthy stock.",
+        "cure": "Prune out infected parts; no full cure."
+    },
+    "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)": {
+        "description": "Dark spots with yellow halos on leaves.",
+        "prevention": "Improve ventilation, remove debris.",
+        "cure": "Copper-based fungicides."
+    },
+    "Grape___healthy": {
+        "description": "No disease detected; the grape plant is healthy.",
+        "prevention": "Trellis for support, proper pruning.",
+        "cure": "No treatment needed."
+    },
+    "Orange___Haunglongbing_(Citrus_greening)": {
+        "description": "Yellowing leaves, stunted growth, bitter fruit.",
+        "prevention": "Control psyllid insects, use disease-free stock.",
+        "cure": "No cure; remove infected trees."
+    },
+    "Peach___Bacterial_spot": {
+        "description": "Dark spots on leaves and fruit, leading to cracking.",
+        "prevention": "Plant resistant varieties, avoid wet leaves.",
+        "cure": "Copper sprays in dormant season."
+    },
+    "Peach___healthy": {
+        "description": "No disease detected; the peach plant is healthy.",
+        "prevention": "Thin fruit, prune annually.",
+        "cure": "No treatment needed."
+    },
+    "Pepper,_bell___Bacterial_spot": {
+        "description": "Water-soaked spots turning brown on leaves and fruit.",
+        "prevention": "Crop rotation, use clean seeds.",
+        "cure": "Copper-based bactericides."
+    },
+    "Pepper,_bell___healthy": {
+        "description": "No disease detected; the bell pepper plant is healthy.",
+        "prevention": "Stake plants, mulch soil.",
+        "cure": "No treatment needed."
+    },
+    "Potato___Early_blight": {
+        "description": "Concentric rings on lower leaves, yellowing.",
+        "prevention": "Crop rotation, mulch.",
+        "cure": "Fungicides like chlorothalonil."
+    },
+    "Potato___Late_blight": {
+        "description": "Dark lesions on leaves, white mold underneath.",
+        "prevention": "Avoid overhead watering, resistant varieties.",
+        "cure": "Remove infected parts, apply metalaxyl."
+    },
+    "Potato___healthy": {
+        "description": "No disease detected; the potato plant is healthy.",
+        "prevention": "Hill soil, rotate crops.",
+        "cure": "No treatment needed."
+    },
+    "Raspberry___healthy": {
+        "description": "No disease detected; the raspberry plant is healthy.",
+        "prevention": "Prune canes, ensure good drainage.",
+        "cure": "No treatment needed."
+    },
+    "Soybean___healthy": {
+        "description": "No disease detected; the soybean plant is healthy.",
+        "prevention": "Rotate with non-legumes, monitor pests.",
+        "cure": "No treatment needed."
+    },
+    "Squash___Powdery_mildew": {
+        "description": "White powdery spots on leaves, reducing photosynthesis.",
+        "prevention": "Space plants, avoid shade.",
+        "cure": "Sulfur or bicarbonate sprays."
+    },
+    "Strawberry___Leaf_scorch": {
+        "description": "Reddish-purple leaf margins, scorching.",
+        "prevention": "Improve air circulation, resistant varieties.",
+        "cure": "Fungicides like captan."
+    },
+    "Strawberry___healthy": {
+        "description": "No disease detected; the strawberry plant is healthy.",
+        "prevention": "Mulch, rotate beds.",
+        "cure": "No treatment needed."
+    },
+    "Tomato___Bacterial_spot": {
+        "description": "Small dark spots on leaves and fruit.",
+        "prevention": "Use clean seeds, avoid splashing water.",
+        "cure": "Copper sprays."
+    },
+    "Tomato___Early_blight": {
+        "description": "Target-like spots on older leaves.",
+        "prevention": "Stake plants, mulch.",
+        "cure": "Fungicides like mancozeb."
     },
     "Tomato___Late_blight": {
         "description": "Brown lesions and white fungal growth on leaf undersides; affects leaves and fruit.",
         "prevention": "Avoid moisture buildup and use resistant varieties.",
         "cure": "Apply metalaxyl-based fungicides and remove infected tissue."
     },
-    "Apple___healthy": {
-        "description": "Your apple plant appears healthy.",
-        "prevention": "Maintain proper watering, pruning, and monitoring.",
-        "cure": "No treatment necessary."
+    "Tomato___Leaf_Mold": {
+        "description": "Yellow spots on upper leaves, gray mold below.",
+        "prevention": "Improve ventilation, reduce humidity.",
+        "cure": "Fungicides like chlorothalonil."
+    },
+    "Tomato___Septoria_leaf_spot": {
+        "description": "Small circular spots with dark borders on leaves.",
+        "prevention": "Remove lower leaves, mulch.",
+        "cure": "Fungicides like azoxystrobin."
+    },
+    "Tomato___Spider_mites Two-spotted_spider_mite": {
+        "description": "Yellow stippling on leaves from mite feeding.",
+        "prevention": "Monitor for mites, use predatory insects.",
+        "cure": "Insecticidal soaps or miticides."
+    },
+    "Tomato___Target_Spot": {
+        "description": "Concentric rings on leaves and fruit.",
+        "prevention": "Crop rotation, sanitation.",
+        "cure": "Fungicides like copper."
+    },
+    "Tomato___Tomato_Yellow_Leaf_Curl_Virus": {
+        "description": "Yellow curled leaves, stunted growth.",
+        "prevention": "Control whiteflies, use resistant varieties.",
+        "cure": "No cure; remove infected plants."
+    },
+    "Tomato___Tomato_mosaic_virus": {
+        "description": "Mottled leaves, distorted growth.",
+        "prevention": "Use virus-free seeds, sanitize tools.",
+        "cure": "No cure; destroy infected plants."
+    },
+    "Tomato___healthy": {
+        "description": "No disease detected; the tomato plant is healthy.",
+        "prevention": "Stake, prune suckers, consistent watering.",
+        "cure": "No treatment needed."
     }
-    # Add full 38-disease dictionary entries here
 }
 
 # Plant Care Tips
 tips = {
-    "Tomato": "Water at soil level. Avoid overhead watering. Use mulch to retain moisture.",
-    "Apple": "Thin fruit for better air flow. Watch for fungal issues in early spring.",
-    "Corn": "Avoid dense planting. Monitor for leaf spot and rust diseases.",
-    "Potato": "Ensure crop rotation and keep soil moist but not soggy."
+    "Apple": "Prune in winter, thin fruit for better size, monitor for pests in spring.",
+    "Blueberry": "Maintain acidic soil (pH 4.5-5.5), mulch with pine needles, water regularly.",
+    "Cherry": "Protect from birds with netting, prune after harvest, ensure full sun.",
+    "Corn": "Plant in blocks for pollination, fertilize with nitrogen, water deeply.",
+    "Grape": "Trellis vines, prune heavily in dormant season, harvest when ripe.",
+    "Orange": "Fertilize with citrus mix, protect from frost, control psyllids.",
+    "Peach": "Thin fruit early, spray for peach leaf curl, harvest when soft.",
+    "Pepper": "Stake tall plants, pick regularly to encourage more fruit, avoid cold.",
+    "Potato": "Hill soil around stems, harvest when tops die back, store in cool dark.",
+    "Raspberry": "Prune old canes after fruiting, mulch to retain moisture.",
+    "Soybean": "Inoculate seeds for nitrogen fixation, harvest when pods are full.",
+    "Squash": "Plant in hills, control squash bugs, harvest young for best taste.",
+    "Strawberry": "Renew beds every 3 years, mulch with straw, pick ripe berries often.",
+    "Tomato": "Water at soil level. Avoid overhead watering. Use mulch to retain moisture."
 }
 
 # Sidebar
