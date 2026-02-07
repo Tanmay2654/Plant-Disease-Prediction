@@ -16,15 +16,11 @@ A **web-based application** that uses deep learning to detect and classify plant
 - Simple and clean **Streamlit** user interface
 - Trained on **Convolutional Neural Network (CNN)**
 
-## 🖼️ Demo Screenshots
+## Demo Screenshots
 
-*(Add 2–4 good screenshots here – highly recommended)*
-
-| Home Page                          | Prediction Result                          | Probability Chart                     |
-|------------------------------------|--------------------------------------------|---------------------------------------|
-| ![Home](home_page.jpeg)            | ![Prediction](screenshots/prediction.png)  | ![Chart](screenshots/chart.png)       |
-
-*(Upload screenshots to a `screenshots/` folder and update paths)*
+| Home Page                          | Prediction Result                              | Probability Chart & Disease Info              |
+|------------------------------------|------------------------------------------------|-----------------------------------------------|
+| ![Home Page](screenshots/home-page.png) | ![Prediction Result](screenshots/prediction-result.png) | ![Chart & Info](screenshots/chart-and-info.png) |
 
 ## 🛠️ Tech Stack
 
